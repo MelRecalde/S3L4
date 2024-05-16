@@ -1,43 +1,62 @@
-/*
-1. creo la tabella con le 76 celle
-*/
 
-const numbers = []
+const numbers = [];
 
-const createNumbers = () => {
-    const table = document.getElementById("table")
-    for (let i = 1; i <= 76; i++) {
-        //numbers.push(i)
-        const numberCell = document.createElement("div") // creo un div
-        numberCell.classList.add("num") // aggiungo una classe al div
-        const cellNumber = document.createElement("h3") // creo un <h3>
-        cellNumber.innerText = i // assegno all'<h3> il valore i 
+const createBoard = () => {
+    const board = document.getElementById("board")
+    for (let index = 0; index < 76; index++) {
+        numbers.push([])
+       
+        const cell = document.createElement("div")
+        cell.classList.add("cell")
+        const cellNum = document.createElement("h3")
+        cellNum.innerText = index + 1
 
-        numberCell.appendChild(cellNumber)
-        table.appendChild(cellNumber)
+        cell.appendChild(cellNum)
+        board.appendChild(cell)
     }
+}
+        const button = document.getElementById("btn")
+        button.addEventListener("click", (event) => {
+            const randomNum = Math.floor(Math.random() * 76) + 1;
+            const cells = document.querySelectorAll(".cell")
+        cells[randomNum].classList.add("rn")
     
-    function extracNumber() {
-        const num = Math.floor(Math.random() * 76) + 1;
-        const cella = document.getElementById()
-    }
+})
 
-    extracNumber()
-}
-
-createNumbers()
-
-const button = document.querySelector("btn")
-// selezionato il bottone procedo a creare un event
-
-button.addEventListener("click")
-
-const saveNumbers = event => {
-    event.preventDefault()
-}
-
+window.addEventListener("DOMContentLoaded",(e)=> {
+createBoard()
+})
 /*
-    window.addEventListener("DOMContentLoaded", () => {
-        const n = numbers[i]
-        createNumbers(n)
-    })*/
+const board = [];
+
+const createBoard = () => {
+  const boardContainer = document.getElementById("board");
+
+  for (let i = 0; i < 76; i++) {
+    board.push([]);
+
+    const numberCell = document.createElement("div");
+    numberCell.classList.add("cell");
+
+    const cellValue = document.createElement("h3");
+    cellValue.innerText = i + 1;
+
+    numberCell.appendChild(cellValue);
+
+    boardContainer.appendChild(numberCell);
+  }
+};
+
+const button = document.getElementById("btn");
+
+button.addEventListener("click", (event) => {
+  const randomNumber = Math.floor(Math.random() * 76) + 1;
+
+  const cells = document.querySelectorAll(".cell");
+
+  cells[randomNumber - 1].classList.add("rn");
+});
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  createBoard();
+});*/
